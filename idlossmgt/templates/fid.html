@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Found ID List</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}"></head>    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropbtn {
+            background-color: #3498DB;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content button {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            background-color: #f1f1f1;
+            border: none;
+            width: 100%;
+            text-align: left;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            background-color: #f1f1f1;
+            width: 100%;
+            text-align: left;
+        }
+        .dropdown-content button:hover, .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+    </style>
+
+<body>
+    <h1 style="background-color: whitesmoke;">Found ID List</h1>
+    <div class="dropdown" style="text-align: center; background-color: aquamarine;">
+        <button class="dropbtn">Actions</button>
+        <div class="dropdown-content">
+            <form action="{% url 'login' %}" method="get">
+                <button type="submit">Logout</button>
+            </form>
+            <form action="{% url 'lostid' %}" method="get">
+                <button type="submit">Report Lost ID</button>
+            </form>
+            <form action="{% url 'foundid' %}" method="get">
+                <button type="submit">Report Found ID</button>
+            </form>
+            <form action="{% url 'lost_ids' %}" method="get">
+                <button type="submit">VIEW LOST IDs</button>
+            </form>
+            <form action="{% url 'found_ids' %}" method="get">
+                <button type="submit">VIEW FOUND IDs</button>
+            </form>
+        </div>
+    </div>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Hall</th>
+                <th>Program</th>
+                <th>Registration Number</th>
+                <th>ID Number</th>
+                <th>Names</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Phone</th>
+                <th>City/State</th>
+                <th>Street/Locality</th>
+                <th>Date</th>
+                <th>Found Date</th>
+                <th>ID Image</th>
+            </tr>
+        </thead>
+        <tbody style="background-color: rgb(191, 248, 165);">
+            {% for found_id in found_ids %}
+            <tr>
+                <td>{{ found_id.hall }}</td>
+                <td>{{ found_id.program }}</td>
+                <td>{{ found_id.reg_no }}</td>
+                <td>{{ found_id.id_no }}</td>
+                <td>{{ found_id.names }}</td>
+                <td>{{ found_id.get_category_display }}</td>
+                <td>{{ found_id.description }}</td>
+                <td>{{ found_id.phone }}</td>
+                <td>{{ found_id.city_state }}</td>
+                <td>{{ found_id.street_locality }}</td>
+                <td>{{ found_id.date }}</td>
+                <td>{{ found_id.found_date }}</td>
+                <td>
+                    {% if found_id.id_picture %}
+                        <img src="{{ found_id.id_picture.url }}" alt="ID Picture" style="width: 100px; height: 60px; object-fit: cover;">
+                    {% else %}
+                        No picture available
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table><BR>
+</body>
+</html>

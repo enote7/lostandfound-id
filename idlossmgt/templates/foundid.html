@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inform on Found ID</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style5.css' %}">
+</head>
+<body>
+    <nav class="container">
+        <ul>
+            <button onclick="window.location.href = '{% url 'home' %}';" class="btn btn-primary">Return <br> Home</button>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            <button onclick="window.location.href = '{% url 'lostid' %}';" class="btn btn-primary">Lost ID?<br> Report</button>
+        </ul>
+    </nav>    
+    <div class="container">
+        <header>
+            <h1 class="logo">FOUND Lost ID, <BR><em style="color: rgb(156, 5, 38);"> please describe!!</em></h1>
+        </header>
+        <h2>Inform on Found ID</h2> 
+        <form method="post" enctype="multipart/form-data">  <!-- Add enctype for file upload -->
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Inform</button>
+        </form>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - ID Lost and Found Management System</title>
+    {% load static %}
+    <style>
+      /* style3.css */
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        color: #007bff;
+        margin-bottom: 30px;
+      }
+
+      .team {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .member {
+        text-align: center;
+        margin: 20px;
+      }
+
+      .member img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #007bff;
+        margin-bottom: 10px;
+      }
+
+      .member p {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+      }
+      /* Navigation styles */
+      nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      nav ul li {
+        display: inline-block;
+        margin-right: 20px;
+      }
+
+      nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        transition: color 0.3s ease;
+      }
+
+      nav ul li a:hover {
+        color: #ffd700; /* Change to your preferred hover color */
+      }
+    </style>
+  </head>
+  <body>
+    <nav style="background-color: rgb(75, 75, 75)">
+      <h1 style="color: rgb(253, 253, 253)"></h1>
+      <ul>
+        <li><a href="{% url 'foundid' %}">Found id? Report</a></li>
+        <li><a href="{% url 'lostid' %}">Lost Id? Report</a></li>
+        <li><a href="{% url 'lost_ids' %}">View lost ids</a></li>
+        <li><a href="{% url 'found_ids' %}">View found ids</a></li>
+        <li><a href="{% url 'about_us' %}">About Us</a></li>
+        <!-- Add this line for the About Us link -->
+      </ul>
+    </nav>
+    <h1>About Us</h1>
+    <p style="text-align: center; font-size: 25px; color: red">
+      <b>Purpose</b><br>
+      </p>
+      <p>
+      Welcome to MUBS lost and found ID system, the most comprehesive system devoted exclusively to find and report lost student ids.
+      Our sole purpose is to return lost and found ids to their respective owners through our channel provided by the internet in a timely and efficient manner.
+    </p>
+    <p style="text-align: center; font-size: 25px; color: red">
+      <b>Description</b><br>
+      </p>
+      <p>
+        MUBS lost and found ID system offers students a convenient, one stop source for the exchange of lost and found id information on the internet.
+        It features a variety of categories and services that aim at providing students with information about their lost and found ids. 
+      </p>
+      <p style="text-align: center; font-size: 25px; color: red">
+        <b>How it works</b><br>
+        <p>
+          Like most online databases, students select to enter data using the report buttons. It has excellent verification features which ensures that the lost and found ids are returned to the correct party. Photos and contacts allow even more accurate id retrieval by the rightfully owner.
+          In case someone reports a lost or found id, the admin is able to access an email of the lost and found id therefore ensuring that the right person is able to claim it. 
+        </p>
+    <p style="text-align: center; font-size: 50px; color: red">
+      The team Under developement 
+    </p>
+    <div class="container">
+      <div class="team">
+        <div class="member">
+          <img src="{% static 'images/as1.jpg' %}" alt="Nantege Sanyu Annet" />
+          <p>Nantege Sanyu Annet</p>
+        </div>
+        <div class="member">
+          <img src="{% static 'images/as2.jpg' %}" alt="Arinaitwe Precious" />
+          <p>Arinaitwe Precious</p>
+        </div>
+        <div class="member">
+          <img src="{% static 'images/as3.jpg' %}" alt="Akamusiima Siifa" />
+          <p>Akamusiima Siifa</p>
+        </div>
+        <div class="member">
+          <img src="{% static 'images/as4.jpg' %}" alt="Mathias Lubanjwa" />
+          <p>Mathias Lubanjwa</p>
+        </div>
+        <br /><br />
+      </div>
+    </div>
+  </body>
+</html>

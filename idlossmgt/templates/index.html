@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to ID Management</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <style>
+      body {
+        background-image: url("/static/images/mubs.jpg");
+        background-size: cover;
+        background-position: center;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        text-align: center;
+        padding: 50px;
+        color: rgb(255, 0, 0);
+        font-size: 20px;
+      }
+
+      .subtitle {
+        color: #3498db;
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+
+      .content {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .login-container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      .btn {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: #2980b9;
+      }
+
+      .login-options {
+        margin-top: 20px;
+      }
+
+      .signup-link,
+      .forgot-password-link {
+        color: #3498db;
+        text-decoration: none;
+        margin-right: 20px;
+      }
+
+      .signup-link:hover,
+      .forgot-password-link:hover {
+        text-decoration: underline;
+      }
+
+      footer {
+        background-color: rgba(154, 167, 162, 0.774);
+        padding: 5px;
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        width: 50%;
+      }
+      .alert {
+    color: yellow;
+    font-weight: bold;
+    background-color: #dc3545;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 style="color: #1aff00; background-color: #3498db;">MAKERERE UNIVERSITY BUSINESS SCHOOL LOST AND FOUND ID SYSTEM</h1>
+    </div>
+    <div class="mySlides fade">
+    <center><img src="{% static 'images/logo.png' %}" style="width:25%" height="25%"></center>
+  </div>
+
+    <!-- Login form -->
+    <div class="login-container">
+      <h2 style="color: #2980b9;">Login</h2><BR>
+      {% if form.non_field_errors %}
+      <div class="alert alert-danger">
+        {% for error in form.non_field_errors %}
+            {{ error }}
+        {% endfor %}
+    </div>
+  {% endif %}
+      <form method="post">
+        {% csrf_token %} {% for field in form %}
+        <div class="form-group">
+          <input
+            type="{{ field.field.widget.input_type }}"
+            name="{{ field.name }}"
+            id="{{ field.id_for_label }}"
+            placeholder="{{ field.label }}"
+          />
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn">Login</button>
+      </form>
+      <div class="login-options">
+        <a href="{% url 'signup' %}" class="signup-link">Register Now</a>
+        <a href="{% url 'password_reset' %}" class="forgot-password-link"
+          >Forgot Password?</a
+        >
+      </div>
+    </div>
+
+  </body>
+</html>

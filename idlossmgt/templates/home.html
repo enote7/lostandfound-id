@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Found and Drafted IDs</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Styles for slideshow */
+        .slideshow-container {
+            max-width: 450px;
+            position: relative;
+            margin: auto;
+        }
+
+        .mySlides img {
+            width: 200px; /* Adjust the width to make the images smaller */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 50%; /* Make the images oval-shaped */
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .dot-container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active {
+            background-color: #717171;
+        }
+
+        /* Styles for dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background-color: #3498DB;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content button {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            background-color: #f1f1f1;
+            border: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            background-color: #f1f1f1;
+            width: 100%;
+            text-align: left;
+        }
+
+        .dropdown-content button:hover, .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .user-guide {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        h2 {
+            color: #333;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="logo"> MAKERERE UNIVERSITY BUSINESS SCHOOL LOST AND FOUND ID SYSTEM!</h1>
+        </header>
+        <nav style="background-color: rgb(75, 75, 75);">
+            <h1 style="color: rgb(253, 253, 253);"></h1>
+            <ul>
+                <li><a href="{% url 'foundid' %}">Found id? Report</a></li>
+                <li><a href="{% url 'lostid' %}">Lost Id? Report</a></li>
+                <li><a href="{% url 'lost_ids' %}">View lost ids</a></li>
+                <li><a href="{% url 'found_ids' %}">View found ids</a></li> 
+                <li><a href="{% url 'about_us' %}">About us</a></li><!-- Add this line for the About us link -->
+            </ul>
+        </nav>
+        <br><br><br>
+        <h1 style="color: rgb(255, 0, 0); text-align: center;">HOME PAGE</h1>
+        <div class="user-guide">
+            <h2>User Guide</h2>
+        <p>Welcome to lost and found ID system! This user guide will help you get started and make the most out of your experience.</p>
+            <h3>Getting Started</h3>
+            <p>Follow these steps to get started:</p>
+            <h3>Navigation</h3>
+            <p>Use the navigation bar above to navigate to different pages of the system.</p>
+    <!-- Slideshow container -->
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="{% static 'images/1a.jpg' %}" style="width:100%">
+        </div>
+        <div class="mySlides fade">
+            <img src="{% static 'images/ab.jpg' %}" style="width:100%">
+        </div>
+        <div class="mySlides fade">
+            <img src="{% static 'images/campus.jpg' %}" style="width:100%">
+        </div>
+        <div class="mySlides fade">
+            <img src="{% static 'images/logo.png' %}" style="width:100%">
+        </div>
+        <div class="mySlides fade">
+            <img src="{% static 'images/mainlib.jpg' %}" style="width:100%">
+        </div>
+        <div class="mySlides fade">
+            <img src="{% static 'images/mubs.jpg' %}" style="width:100%">
+        </div>
+        <div class="mySlides fade">
+            <img src="{% static 'images/short_tower.jpg' %}" style="width:100%">
+        </div>
+
+        <!-- Navigation arrows -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+            <h3>Best Practices</h3>
+            <p>For optimal usage of the system, remember:</p>
+            <ul>
+                <li>Always take images of the ID pictures when recording lost or found IDs.</li>
+                <li>Keep your account information secure and avoid sharing login details.</li>
+            </ul>
+            <h3>Troubleshooting</h3>
+            <p>If you encounter any issues while using the system, please refer to our troubleshooting guide or contact our support team for assistance.</p>
+            <h3>Feedback</h3>
+            <p>We value your feedback! Please let us know if you have any suggestions or comments to improve the system.</p>
+            <b><P>For more information contact us<br></b>
+             +256 751561645<br>
+             +256 784796112
+        </P>
+
+        </div>       
+        <div style="overflow-x:auto;"></div><br><br>
+        </div>
+    </div>
+
+    
+    <!-- Dot container -->
+    <div class="dot-container" style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <span class="dot" onclick="currentSlide(6)"></span>
+        <span class="dot" onclick="currentSlide(7)"></span>
+    </div>
+    
+    <!-- Your JavaScript code -->
+    <script>
+        var slideIndex = 0;
+        showSlides();
+    
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+    
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+    
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+    </script>
+</body>
+</html>

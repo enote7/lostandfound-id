@@ -1,0 +1,114 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('../images/OIP.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+/* Navigation styles */
+nav {
+    background-color: #007bff; /* Blue navigation background */
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff; /* White text color */
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffd700; /* Yellow hover color */
+}
+
+.container {
+    max-width: 1200px; /* Adjust container width as needed */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff; /* White container background */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333; /* Dark text color */
+}
+
+.search-box {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form input[type="text"] {
+    width: 300px; /* Adjust input width as needed */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+form button[type="submit"] {
+    background-color: #28a745; /* Green button background */
+    color: #fff; /* White button text color */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+form button[type="submit"]:hover {
+    background-color: #218838; /* Darker green hover color */
+}
+
+.id-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.id-images img {
+    width: 150px; /* Adjust image size as needed */
+    margin-bottom: 10px;
+}
+
+.id-names ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.id-names ul li {
+    margin-bottom: 10px;
+}
+
+.id-details {
+    margin-top: 20px;
+}
+
+.id-details ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.id-details ul li {
+    margin-bottom: 10px;
+}

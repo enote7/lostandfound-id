@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - My Website</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style4.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Please Confirm Your Email Before You Can Login</h1>
+        <p>If not, you won't be able to login. Thank you MGT</p>
+        <h2>Login</h2>
+        {% if form.non_field_errors %}
+        <div class="alert alert-danger">
+            {% for error in form.non_field_errors %}
+                {{ error }}
+            {% endfor %}
+        </div>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                <input type="{{ field.field.widget.input_type }}" name="{{ field.name }}" id="{{ field.id_for_label }}">
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary" style="background-color: rgb(48, 51, 53);">Login</button>
+        </form><br>
+        <form action="{% url 'signup' %}" method="get">
+            <button type="submit" class="btn btn-primary">Register Now</button>
+        </form><br>
+        <form action="{% url 'password_reset' %}" method="get">
+            <button type="submit" class="btn btn-primary">Forgot Password?</button>
+        </form>
+    </div>
+</body>
+</html>
